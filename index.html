@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="Staq.js"></script>
+<script type="text/javascript" src="Otdelenie.js"></script>
+
+<script type="text/javascript" src="Ortopediq.js"></script>
+
+<script type="text/javascript" src="Person.js"></script>
+<script type="text/javascript" src="Doctor.js"></script>
+
+<script type="text/javascript" src="Kardiologia.js"></script>
+<script type="text/javascript" src="MedSestra.js"></script>
+
+
+<script type="text/javascript" src="Pacient.js"></script>
+<script type="text/javascript" src="Virusologia.js"></script>
+<script type="text/javascript" src="Hospital.js"></script>
+<script type="text/javascript">
+	var hospital = new Hospital();
+	var drIvan = new Doctor('Ivan', 'Ivanov');
+	var drGosho = new Doctor('Gosho', 'Goshev');
+	var drMitko = new Doctor('Mitko', 'Dimitrov');
+	hospital.setDr(drIvan);
+	hospital.setDr(drGosho);
+	hospital.setDr(drMitko);
+	
+	
+	var mSestIvanova = new MedSestra('Ivanka', 'Ivanova',hospital.getOtdelenie()['ortopediq']);
+	var mSestGicheto = new MedSestra('Ginka', 'Ginkova');
+	var mSestNina = new MedSestra('Nina', 'Nikolina');
+	hospital.setMedS(mSestGicheto);
+	hospital.setMedS(mSestIvanova);
+	hospital.setMedS(mSestNina);
+	var pepo = new Pacient('Pepo', 'Ivanov', 'male');
+
+	hospital.priem(pepo);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
