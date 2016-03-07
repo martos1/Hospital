@@ -29,7 +29,7 @@ function Hospital() {
 		_medS.push(medS);
 	}
 	
-	this.setDr = function(dr) {
+	this.addDoctor = function(dr) {
 		_dr.push(dr);
 	}
 	
@@ -42,7 +42,7 @@ Hospital.prototype.nastanqvane = function(patient){
 	var otdelenie = patient.getOtdelenie();
 	var stai = otdelenie.getStai();
 	for(var i = 0; i < stai.length; i++){
-		if(stai[i].checkStaq(stai[i])){
+		if(stai[i].checkStaq(patient)){
 			this.setPatient(patient);
 			stai[i].addPatient(patient);
 			
@@ -52,7 +52,7 @@ Hospital.prototype.nastanqvane = function(patient){
 }
 
 Hospital.prototype.getRandDoctor = function(){
-	return this.getDoctor()[Math.floor(Math.random()*(this.getDoctor().length - 1))];
+	return this.getDoctor()[Math.floor(Math.random()*(this.getDoctor().length))];
 }
 
 Hospital.prototype.priem = function(pacient) {
@@ -79,3 +79,22 @@ Hospital.prototype.izpisvane = function(patient) {
 			);
 	
 }
+
+Hospital.prototype.addMedSestra = function(sestra, otdelenie) {
+	sestra.setOtdelenie(otdelenie);
+	this.setMedS(sestra);
+	
+}
+
+Hospital.prototype.workDay = function() {
+	var medSestri = this.getMedS();
+	var drs = this.getDoctor();
+	for(i in medSestri){
+		medSestri[i].giveDrugs();
+	}
+	for(i in drs){
+		drs[i].visited();
+	}
+	
+}
+

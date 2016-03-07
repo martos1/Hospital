@@ -20,10 +20,11 @@ Doctor.prototype = new Person();
 Doctor.prototype.constructor = Doctor;
 
 Doctor.prototype.visited = function() {
-	for (patient in this.getPatient()){
+	var patients = this.getPatient();
+	for (i in patients){
 		console.log('Lekar ' + this.getFirstName() + ' ' + this.getLastName() +
-				' poseti pacient ' + patient.getFirstName() + ' ' +
-				patient.getLastName() + ' v staq ' + patient.getRoom()  )
+				' poseti pacient ' + patients[i].getFirstName() + ' ' +
+				patients[i].getLastName()  )
 	} 
 }
 
